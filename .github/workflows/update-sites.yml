@@ -4,8 +4,6 @@ on:
   schedule:
     - cron: '0 */2 * * *'  # Run every 2 hours
   workflow_dispatch:  # Allow manual triggers
-  push:
-    branches: [main]
 
 permissions:
   contents: write
