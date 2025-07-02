@@ -1,8 +1,23 @@
 use chrono::{DateTime, Utc};
+use clap::{Parser, ValueEnum};
 use reqwest::header::{HeaderMap, HeaderValue, ACCEPT, AUTHORIZATION, USER_AGENT};
 use serde::{Deserialize, Serialize};
 use std::env;
 use std::fs;
+
+#[derive(Debug, Clone, ValueEnum)]
+enum Mode {
+    Ack,
+    Nack,
+}
+
+#[derive(Parser)]
+#[command(name = "ackamoto")]
+#[command(about = "Track Bitcoin Core ACKs and NACKs")]
+struct Args {
+    #[arg(long, value_enum, default_value_t = Mode::Ack)]
+    mode: Mode,
+}
 
 #[derive(Debug, Deserialize)]
 struct PullRequest {
@@ -55,30 +70,56 @@ fn create_headers(token: Option<String>) -> HeaderMap {
     headers
 }
 
-fn extract_ack_type(body: &str) -> Option<String> {
+fn extract_ack_type(body: &str, mode: &Mode) -> Option<String> {
     let lower_body = body.to_lowercase();
 
-    // Check for standalone ACK patterns (with word boundaries)
-    if lower_body.contains("concept ack") {
-        return Some("Concept ACK".to_string());
-    }
-    if lower_body.contains("utack") {
-        return Some("utACK".to_string());
-    }
-    if lower_body.contains("tested ack") {
-        return Some("Tested ACK".to_string());
-    }
-    if lower_body.contains("code review ack") {
-        return Some("Code Review ACK".to_string());
-    }
+    match mode {
+        Mode::Ack => {
+            // Check for standalone ACK patterns (with word boundaries)
+            if lower_body.contains("concept ack") {
+                return Some("Concept ACK".to_string());
+            }
+            if lower_body.contains("utack") {
+                return Some("utACK".to_string());
+            }
+            if lower_body.contains("tested ack") {
+                return Some("Tested ACK".to_string());
+            }
+            if lower_body.contains("code review ack") {
+                return Some("Code Review ACK".to_string());
+            }
 
-    // For regular ACK, ensure it's a standalone word
-    let words: Vec<&str> = lower_body.split_whitespace().collect();
-    for word in words {
-        // Remove common punctuation from the word
-        let clean_word = word.trim_matches(|c: char| !c.is_alphanumeric());
-        if clean_word == "ack" {
-            return Some("ACK".to_string());
+            // For regular ACK, ensure it's a standalone word
+            let words: Vec<&str> = lower_body.split_whitespace().collect();
+            for word in words {
+                // Remove common punctuation from the word
+                let clean_word = word.trim_matches(|c: char| !c.is_alphanumeric());
+                if clean_word == "ack" {
+                    return Some("ACK".to_string());
+                }
+            }
+        }
+        Mode::Nack => {
+            // Check for NACK patterns
+            if lower_body.contains("concept nack") {
+                return Some("Concept NACK".to_string());
+            }
+            if lower_body.contains("strong nack") {
+                return Some("Strong NACK".to_string());
+            }
+            if lower_body.contains("weak nack") {
+                return Some("Weak NACK".to_string());
+            }
+
+            // For regular NACK, ensure it's a standalone word
+            let words: Vec<&str> = lower_body.split_whitespace().collect();
+            for word in words {
+                // Remove common punctuation from the word
+                let clean_word = word.trim_matches(|c: char| !c.is_alphanumeric());
+                if clean_word == "nack" {
+                    return Some("NACK".to_string());
+                }
+            }
         }
     }
 
@@ -166,15 +207,20 @@ async fn fetch_comments_for_pr(
     Ok(comments)
 }
 
-fn generate_error_html(error_message: &str) -> String {
+fn generate_error_html(error_message: &str, mode: &Mode) -> String {
+    let (site_name, site_type, site_title) = match mode {
+        Mode::Ack => ("ackamoto", "ACK", "ACKamoto"),
+        Mode::Nack => ("nackamoto", "NACK", "NACKamoto"),
+    };
+    
     format!(
         r#"<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin Core ACKs - ackamoto.com</title>
-    <link rel="icon" type="image/png" href="images/ackamoto-logo.png">
+    <title>Bitcoin Core {}s - {}.com</title>
+    <link rel="icon" type="image/png" href="images/{}-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&display=swap" rel="stylesheet">
     <style>
         :root {{
@@ -223,14 +269,14 @@ fn generate_error_html(error_message: &str) -> String {
     </style>
 </head>
 <body>
-    <h1>Bitcoin Core ACKs</h1>
+    <h1>Bitcoin Core {}s</h1>
     <div class="error-message">
         {}<br><br>
         The site will automatically retry when GitHub Actions runs every 2 hours.
     </div>
 </body>
 </html>"#,
-        error_message
+        site_type, site_name, site_name, site_type, error_message
     )
 }
 
@@ -238,8 +284,12 @@ fn format_date(date: &DateTime<Utc>) -> String {
     date.format("%Y-%m-%d").to_string()
 }
 
-fn generate_html(acks: &[Ack]) -> String {
+fn generate_html(acks: &[Ack], mode: &Mode) -> String {
     let now = Utc::now();
+    let (site_name, site_type, site_title) = match mode {
+        Mode::Ack => ("ackamoto", "ACK", "ACKamoto"),
+        Mode::Nack => ("nackamoto", "NACK", "NACKamoto"),
+    };
     
     // If no ACKs, generate a simple empty page
     if acks.is_empty() {
@@ -249,8 +299,8 @@ fn generate_html(acks: &[Ack]) -> String {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin Core ACKs - ackamoto.com</title>
-    <link rel="icon" type="image/png" href="images/ackamoto-logo.png">
+    <title>Bitcoin Core {}s - {}.com</title>
+    <link rel="icon" type="image/png" href="images/{}-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&display=swap" rel="stylesheet">
     <style>
         :root {{
@@ -323,13 +373,13 @@ fn generate_html(acks: &[Ack]) -> String {
 </head>
 <body>
     <div class="title-section">
-        <img src="images/ackamoto-logo.png" alt="ACKamoto" class="logo logo-light">
-        <img src="images/ackamoto-logo-dark.png" alt="ACKamoto" class="logo logo-dark">
+        <img src="images/{}-logo.png" alt="{}" class="logo logo-light">
+        <img src="images/{}-logo-dark.png" alt="{}" class="logo logo-dark">
     </div>
     <p class="last-updated">Last updated at {} UTC</p>
 </body>
 </html>"#,
-            now.format("%Y-%m-%d %H:%M")
+            site_type, site_name, site_name, site_name, site_title, site_name, site_title, now.format("%Y-%m-%d %H:%M")
         );
     }
 
@@ -353,8 +403,8 @@ fn generate_html(acks: &[Ack]) -> String {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin Core ACKs - ackamoto.com</title>
-    <link rel="icon" type="image/png" href="images/ackamoto-logo.png">
+    <title>Bitcoin Core {}s - {}.com</title>
+    <link rel="icon" type="image/png" href="images/{}-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&display=swap" rel="stylesheet">
     <style>
         :root {{
@@ -477,12 +527,12 @@ fn generate_html(acks: &[Ack]) -> String {
 </head>
 <body>
     <div class="title-section">
-        <img src="images/ackamoto-logo.png" alt="ACKamoto" class="logo logo-light">
-        <img src="images/ackamoto-logo-dark.png" alt="ACKamoto" class="logo logo-dark">
+        <img src="images/{}-logo.png" alt="{}" class="logo logo-light">
+        <img src="images/{}-logo-dark.png" alt="{}" class="logo logo-dark">
     </div>
     <p class="last-updated">Last updated at {}</p>
 "#,
-        now.format("%Y-%m-%d %H:%M UTC")
+        site_type, site_name, site_name, site_name, site_title, site_name, site_title, now.format("%Y-%m-%d %H:%M UTC")
     ) + &sorted_dates
         .iter()
         .map(|date| {
@@ -528,6 +578,7 @@ fn generate_html(acks: &[Ack]) -> String {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let args = Args::parse();
     let token = env::var("GITHUB_TOKEN").ok();
 
     let client = reqwest::Client::new();
@@ -544,6 +595,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             // Return empty HTML with error message
             let html = generate_error_html(
                 "Unable to fetch data from GitHub API. This may be due to rate limiting.",
+                &args.mode,
             );
             fs::write("index.html", html)?;
             return Ok(());
@@ -569,7 +621,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 continue;
             }
 
-            if let Some(ack_type) = extract_ack_type(&comment.body) {
+            if let Some(ack_type) = extract_ack_type(&comment.body, &args.mode) {
                 let ack = Ack {
                     pr_number: pr.number,
                     pr_title: pr.title.clone(),
@@ -592,7 +644,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     println!("Found {} ACKs total", all_acks.len());
 
-    let html = generate_html(&all_acks);
+    let html = generate_html(&all_acks, &args.mode);
     fs::write("index.html", html)?;
     println!("Generated index.html");
 
