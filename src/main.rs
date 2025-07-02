@@ -208,7 +208,7 @@ async fn fetch_comments_for_pr(
 }
 
 fn generate_error_html(error_message: &str, mode: &Mode) -> String {
-    let (site_name, site_type, site_title) = match mode {
+    let (site_name, site_type, _site_title) = match mode {
         Mode::Ack => ("ackamoto", "ACK", "ACKamoto"),
         Mode::Nack => ("nackamoto", "NACK", "NACKamoto"),
     };
@@ -286,9 +286,22 @@ fn format_date(date: &DateTime<Utc>) -> String {
 
 fn generate_html(acks: &[Ack], mode: &Mode) -> String {
     let now = Utc::now();
-    let (site_name, site_type, site_title) = match mode {
+    let (site_name, site_type, _site_title) = match mode {
         Mode::Ack => ("ackamoto", "ACK", "ACKamoto"),
         Mode::Nack => ("nackamoto", "NACK", "NACKamoto"),
+    };
+    
+    // Calculate date range if we have ACKs
+    let date_range_text = if !acks.is_empty() {
+        let oldest_date = acks.iter().map(|ack| &ack.date).min().unwrap();
+        let newest_date = acks.iter().map(|ack| &ack.date).max().unwrap();
+        format!(
+            "{} to {}",
+            oldest_date.format("%Y-%m-%d"),
+            newest_date.format("%Y-%m-%d")
+        )
+    } else {
+        "Scanning recent PRs".to_string()
     };
     
     // If no ACKs, generate a simple empty page
@@ -354,7 +367,17 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         .last-updated {{
             color: #888;
             font-size: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            margin-top: 0;
+            text-align: left;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 400;
+            letter-spacing: 0;
+        }}
+        .date-range {{
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
             margin-top: 0;
             text-align: left;
             font-family: 'Roboto Mono', monospace;
@@ -377,9 +400,10 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         <img src="images/{}-logo-dark.png" alt="{}" class="logo logo-dark">
     </div>
     <p class="last-updated">Last updated at {} UTC</p>
+    <p class="date-range">{}</p>
 </body>
 </html>"#,
-            site_type, site_name, site_name, site_name, site_title, site_name, site_title, now.format("%Y-%m-%d %H:%M")
+            site_type, site_name, site_name, site_name, _site_title, site_name, _site_title, now.format("%Y-%m-%d %H:%M"), date_range_text
         );
     }
 
@@ -469,7 +493,17 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         .last-updated {{
             color: #888;
             font-size: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            margin-top: 0;
+            text-align: left;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            letter-spacing: -0.05em;
+        }}
+        .date-range {{
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
             margin-top: 0;
             text-align: left;
             font-family: 'Cormorant Garamond', serif;
@@ -531,8 +565,9 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         <img src="images/{}-logo-dark.png" alt="{}" class="logo logo-dark">
     </div>
     <p class="last-updated">Last updated at {}</p>
+    <p class="date-range">{}</p>
 "#,
-        site_type, site_name, site_name, site_name, site_title, site_name, site_title, now.format("%Y-%m-%d %H:%M UTC")
+        site_type, site_name, site_name, site_name, _site_title, site_name, _site_title, now.format("%Y-%m-%d %H:%M UTC"), date_range_text
     ) + &sorted_dates
         .iter()
         .map(|date| {
