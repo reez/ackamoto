@@ -438,6 +438,7 @@ fn generate_html(acks: &[Ack]) -> String {
         a {{
             color: var(--text-color);
             text-decoration: underline;
+            text-underline-offset: 0.3em;
         }}
         a:hover {{
             color: var(--text-color);
