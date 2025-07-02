@@ -302,7 +302,7 @@ fn generate_html(acks: &[Ack]) -> String {
             }}
         }}
         .last-updated {{
-            color: var(--text-color);
+            color: #888;
             font-size: 1rem;
             margin-bottom: 2rem;
             margin-top: 0;
@@ -417,7 +417,7 @@ fn generate_html(acks: &[Ack]) -> String {
             letter-spacing: -0.05em;
         }}
         .last-updated {{
-            color: var(--text-color);
+            color: #888;
             font-size: 1rem;
             margin-bottom: 2rem;
             margin-top: 0;
