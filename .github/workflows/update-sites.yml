@@ -1,0 +1,116 @@
+name: Update ACKs and NACKs
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # Run every 2 hours
+  workflow_dispatch:  # Allow manual triggers
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-ackamoto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Build ACKs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cargo run --release -- --mode ack
+
+      - name: Deploy to ackamoto repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Clone the ackamoto repo
+          git clone https://x-access-token:$GITHUB_TOKEN@github.com/reez/ackamoto.git ackamoto-deploy
+          cd ackamoto-deploy
+          
+          # Copy generated files
+          cp ../index.html .
+          cp -r ../images .
+          # Copy CNAME for ackamoto.com (if it exists)
+          if [ -f ../CNAME ]; then cp ../CNAME .; fi
+          
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Commit and push if there are changes
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit to ackamoto"
+          else
+            git commit -m "Update ACKs - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
+
+  deploy-nackamoto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Build NACKs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cargo run --release -- --mode nack
+
+      - name: Deploy to nackamoto repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Clone the nackamoto repo
+          git clone https://x-access-token:$GITHUB_TOKEN@github.com/reez/nackamoto.git nackamoto-deploy
+          cd nackamoto-deploy
+          
+          # Copy generated files
+          cp ../index.html .
+          cp -r ../images .
+          # Copy CNAME for nackamoto.com
+          cp ../CNAME.nackamoto CNAME
+          
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Commit and push if there are changes
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit to nackamoto"
+          else
+            git commit -m "Update NACKs - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
