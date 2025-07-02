@@ -326,7 +326,7 @@ fn generate_html(acks: &[Ack]) -> String {
         <img src="images/ackamoto-logo.png" alt="ACKamoto" class="logo logo-light">
         <img src="images/ackamoto-logo-dark.png" alt="ACKamoto" class="logo logo-dark">
     </div>
-    <p class="last-updated">Last updated: {} UTC</p>
+    <p class="last-updated">Last updated at {} UTC</p>
 </body>
 </html>"#,
             now.format("%Y-%m-%d %H:%M")
@@ -480,7 +480,7 @@ fn generate_html(acks: &[Ack]) -> String {
         <img src="images/ackamoto-logo.png" alt="ACKamoto" class="logo logo-light">
         <img src="images/ackamoto-logo-dark.png" alt="ACKamoto" class="logo logo-dark">
     </div>
-    <p class="last-updated">Last updated: {}</p>
+    <p class="last-updated">Last updated at {}</p>
 "#,
         now.format("%Y-%m-%d %H:%M UTC")
     ) + &sorted_dates
@@ -489,7 +489,7 @@ fn generate_html(acks: &[Ack]) -> String {
             let date_acks = &acks_by_date[date];
             let date_header = format!(
                 r#"    
-    <h2 class="date-header">[{}]</h2>
+    <h2 class="date-header">{}</h2>
     
     <div class="acks-container">
 "#,
