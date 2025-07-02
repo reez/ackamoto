@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Core NACKs - nackamoto.com</title>
+    <link rel="icon" type="image/png" href="images/nackamoto-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f5ea;
+            --text-color: #222;
+            --border-color: #e5e5e5;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #000;
+                --text-color: #fff;
+                --border-color: #333;
+            }
+        }
+        
+        body {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--text-color);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--bg-color);
+            font-size: 1rem;
+            letter-spacing: 0;
+        }
+        .title-section {
+            text-align: center;
+            margin-bottom: 8rem;
+        }
+        .logo {
+            height: 16rem;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .logo-light {
+            display: block;
+        }
+        .logo-dark {
+            display: none;
+        }
+        @media (prefers-color-scheme: dark) {
+            .logo-light {
+                display: none;
+            }
+            .logo-dark {
+                display: block;
+            }
+        }
+        .date-header {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 1rem;
+            color: #888;
+            text-align: left;
+            margin: 4rem 0 4rem 0;
+            letter-spacing: -0.05em;
+        }
+        .last-updated {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 0;
+            text-align: left;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            letter-spacing: -0.05em;
+        }
+        .date-range {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            margin-top: 0;
+            text-align: left;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            letter-spacing: -0.05em;
+        }
+        .acks-container {
+            margin-top: 1rem;
+        }
+        .ack-entry {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+        a {
+            color: var(--text-color);
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+        }
+        a:hover {
+            color: var(--text-color);
+        }
+        .pr-title {
+            word-wrap: break-word;
+            line-height: 1rem;
+        }
+        a.pr-number {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .pr-title, .ack-type {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        a.commenter {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .ack-type {
+            display: inline-block;
+            padding: 0.5rem;
+            border: 2px solid var(--text-color);
+            width: fit-content;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .logo {
+                height: 8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title-section">
+        <img src="images/nackamoto-logo.png" alt="NACKamoto" class="logo logo-light">
+        <img src="images/nackamoto-logo-dark.png" alt="NACKamoto" class="logo logo-dark">
+    </div>
+    <p class="last-updated">Last updated at 2025-07-02 21:37 UTC</p>
+    <p class="date-range">Showing nacks from 50 recent PRs (scanned from 2025-06-26 to 2025-06-26)</p>
+    
+    <h2 class="date-header">2025-06-26</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/32790" target="_blank" class="pr-number">#32790</a>
+            <div class="pr-title" title="rpc, test: allow multiple data outputs in `createrawtransaction` & `createpsbt`">rpc, test: allow multiple data outputs in `createrawtransaction` & `createpsbt`</div>
+            <div class="ack-type">Concept NACK</div>
+            <a href="https://github.com/bitcoin/bitcoin/pull/32790#issuecomment-3009784226" target="_blank" class="commenter">luke-jr</a>
+        </div>
+    </div>
+</body>
+</html>
