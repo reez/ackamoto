@@ -502,7 +502,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         }}
         .date-range {{
             color: #888;
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-bottom: 3rem;
             margin-top: 0;
             text-align: left;
