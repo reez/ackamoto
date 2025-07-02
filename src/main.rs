@@ -487,7 +487,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             font-size: 1rem;
             color: #888;
             text-align: left;
-            margin: 4rem 0 4rem 0;
+            margin: 3rem 0 4rem 0;
             letter-spacing: -0.05em;
         }}
         .last-updated {{
