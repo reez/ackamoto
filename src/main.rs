@@ -448,9 +448,8 @@ fn generate_html(acks: &[Ack]) -> String {
             line-height: 1rem;
         }}
         a.pr-number {{
-            font-size: 2rem;
-            font-weight: 100 !important;
-            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
         }}
         .pr-title, .ack-type {{
             font-size: 1rem;
@@ -462,7 +461,7 @@ fn generate_html(acks: &[Ack]) -> String {
         }}
         .ack-type {{
             display: inline-block;
-            padding: 0rem 1rem;
+            padding: 0.5rem;
             border: 2px solid var(--text-color);
             width: fit-content;
         }}
