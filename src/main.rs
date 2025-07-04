@@ -221,7 +221,7 @@ fn generate_error_html(error_message: &str, mode: &Mode) -> String {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoin Core {}s - {}.com</title>
     <link rel="icon" type="image/png" href="images/{}-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {{
             --bg-color: #f8f5ea;
@@ -321,7 +321,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoin Core {}s - {}.com</title>
     <link rel="icon" type="image/png" href="images/{}-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {{
             --bg-color: #f8f5ea;
@@ -377,9 +377,9 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             margin-bottom: 3rem;
             margin-top: 0;
             text-align: left;
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 400;
-            letter-spacing: 0;
+            letter-spacing: -0.05em;
         }}
         .date-range {{
             color: #888;
@@ -435,7 +435,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoin Core {}s - {}.com</title>
     <link rel="icon" type="image/png" href="images/{}-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {{
             --bg-color: #f8f5ea;
