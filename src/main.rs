@@ -221,7 +221,7 @@ fn generate_error_html(error_message: &str, mode: &Mode) -> String {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoin Core {}s - {}.com</title>
     <link rel="icon" type="image/png" href="images/{}-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {{
             --bg-color: #f8f5ea;
@@ -321,7 +321,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoin Core {}s - {}.com</title>
     <link rel="icon" type="image/png" href="images/{}-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {{
             --bg-color: #f8f5ea;
@@ -378,7 +378,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             margin-top: 0;
             text-align: left;
             font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
+            font-weight: 300;
             letter-spacing: -0.05em;
         }}
         .date-range {{
@@ -435,7 +435,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoin Core {}s - {}.com</title>
     <link rel="icon" type="image/png" href="images/{}-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {{
             --bg-color: #f8f5ea;
@@ -489,7 +489,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         }}
         .date-header {{
             font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
+            font-weight: 300;
             font-size: 1rem;
             color: #888;
             text-align: left;
@@ -503,7 +503,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             margin-top: 0;
             text-align: left;
             font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
+            font-weight: 300;
             letter-spacing: -0.05em;
         }}
         .date-range {{
@@ -513,7 +513,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             margin-top: 0;
             text-align: left;
             font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
+            font-weight: 300;
             letter-spacing: -0.05em;
         }}
         .acks-container {{
