@@ -646,8 +646,20 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut all_acks = Vec::new();
 
-    // Process only the most recent PRs to avoid hitting rate limits
-    let prs_to_process = prs.iter().take(50).collect::<Vec<_>>(); // Reduced from 300 to 50
+    // Check if we have a GitHub token to determine rate limits
+    let has_token = env::var("GITHUB_TOKEN").is_ok();
+    
+    let prs_limit = if has_token {
+        250  // With token, check 250 PRs for both ACKs and NACKs
+    } else {
+        50   // Without token, check 50 PRs for both ACKs and NACKs
+    };
+    
+    if !has_token {
+        println!("Warning: No GITHUB_TOKEN found. API requests will be limited.");
+    }
+    
+    let prs_to_process = prs.iter().take(prs_limit).collect::<Vec<_>>();
 
     for (i, pr) in prs_to_process.iter().enumerate() {
         if i % 10 == 0 {
