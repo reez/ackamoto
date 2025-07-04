@@ -301,7 +301,14 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             newest_date.format("%Y-%m-%d")
         )
     } else {
-        "Scanning recent PRs".to_string()
+        // When no ACKs found, show an approximate date range for the PRs we searched
+        let end_date = Utc::now();
+        let start_date = end_date - chrono::Duration::days(7);
+        format!(
+            "{} to {}",
+            start_date.format("%Y-%m-%d"),
+            end_date.format("%Y-%m-%d")
+        )
     };
     
     // If no ACKs, generate a simple empty page
