@@ -558,6 +558,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             padding: 0.5rem;
             border: 2px solid var(--text-color);
             width: fit-content;
+            text-decoration: none;
         }}
         @media (max-width: 768px) {{
             body {{
@@ -597,7 +598,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
                         r#"        <div class="ack-entry">
             <a href="{}" target="_blank" class="pr-number">#{}</a>
             <div class="pr-title" title="{}">{}</div>
-            <div class="ack-type">{}</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">{}</a>
             <a href="{}" target="_blank" class="commenter">{}</a>
         </div>
 "#,
