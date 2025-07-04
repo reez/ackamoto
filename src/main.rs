@@ -381,6 +381,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             font-weight: 300;
             letter-spacing: 0;
             transform: scaleX(0.85);
+            transform-origin: left;
         }}
         .date-range {{
             color: #888;
@@ -497,6 +498,8 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             margin: 3rem 0 4rem 0;
             letter-spacing: 0;
             transform: scaleX(0.85);
+            transform-origin: left;
+            transform-origin: left;
         }}
         .last-updated {{
             color: #888;
@@ -508,6 +511,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             font-weight: 300;
             letter-spacing: 0;
             transform: scaleX(0.85);
+            transform-origin: left;
         }}
         .date-range {{
             color: #888;
@@ -519,6 +523,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             font-weight: 300;
             letter-spacing: 0;
             transform: scaleX(0.85);
+            transform-origin: left;
         }}
         .acks-container {{
             margin-top: 1rem;
