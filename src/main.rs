@@ -379,7 +379,8 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             text-align: left;
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
-            letter-spacing: -0.05em;
+            letter-spacing: 0;
+            transform: scaleX(0.85);
         }}
         .date-range {{
             color: #888;
@@ -494,7 +495,8 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             color: #888;
             text-align: left;
             margin: 3rem 0 4rem 0;
-            letter-spacing: -0.05em;
+            letter-spacing: 0;
+            transform: scaleX(0.85);
         }}
         .last-updated {{
             color: #888;
@@ -504,7 +506,8 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             text-align: left;
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
-            letter-spacing: -0.05em;
+            letter-spacing: 0;
+            transform: scaleX(0.85);
         }}
         .date-range {{
             color: #888;
@@ -514,7 +517,8 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
             text-align: left;
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
-            letter-spacing: -0.05em;
+            letter-spacing: 0;
+            transform: scaleX(0.85);
         }}
         .acks-container {{
             margin-top: 1rem;
