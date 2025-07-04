@@ -292,7 +292,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
     };
     
     // Calculate date range if we have ACKs
-    let date_range_text = if !acks.is_empty() {
+    let _date_range_text = if !acks.is_empty() {
         let oldest_date = acks.iter().map(|ack| &ack.date).min().unwrap();
         let newest_date = acks.iter().map(|ack| &ack.date).max().unwrap();
         format!(
@@ -407,10 +407,9 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         <img src="images/{}-logo-dark.png" alt="{}" class="logo logo-dark">
     </div>
     <p class="last-updated">Last updated at {} UTC</p>
-    <p class="date-range">{}</p>
 </body>
 </html>"#,
-            site_type, site_name, site_name, site_name, _site_title, site_name, _site_title, now.format("%Y-%m-%d %H:%M"), date_range_text
+            site_type, site_name, site_name, site_name, _site_title, site_name, _site_title, now.format("%Y-%m-%d %H:%M")
         );
     }
 
@@ -572,9 +571,8 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         <img src="images/{}-logo-dark.png" alt="{}" class="logo logo-dark">
     </div>
     <p class="last-updated">Last updated at {}</p>
-    <p class="date-range">{}</p>
 "#,
-        site_type, site_name, site_name, site_name, _site_title, site_name, _site_title, now.format("%Y-%m-%d %H:%M UTC"), date_range_text
+        site_type, site_name, site_name, site_name, _site_title, site_name, _site_title, now.format("%Y-%m-%d %H:%M UTC")
     ) + &sorted_dates
         .iter()
         .map(|date| {
