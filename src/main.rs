@@ -230,7 +230,7 @@ fn generate_error_html(error_message: &str, mode: &Mode) -> String {
         
         @media (prefers-color-scheme: dark) {{
             :root {{
-                --bg-color: #000;
+                --bg-color: #131313;
                 --text-color: #fff;
             }}
         }}
@@ -330,7 +330,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         
         @media (prefers-color-scheme: dark) {{
             :root {{
-                --bg-color: #000;
+                --bg-color: #131313;
                 --text-color: #fff;
             }}
         }}
@@ -447,7 +447,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         
         @media (prefers-color-scheme: dark) {{
             :root {{
-                --bg-color: #000;
+                --bg-color: #131313;
                 --text-color: #fff;
                 --border-color: #333;
             }}
