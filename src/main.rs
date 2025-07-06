@@ -224,7 +224,7 @@ fn generate_error_html(error_message: &str, mode: &Mode) -> String {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {{
-            --bg-color: #f8f5ea;
+            --bg-color: #fff;
             --text-color: #222;
         }}
         
@@ -324,7 +324,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {{
-            --bg-color: #f8f5ea;
+            --bg-color: #fff;
             --text-color: #222;
         }}
         
@@ -440,7 +440,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Roboto+Mono:wght@100;400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {{
-            --bg-color: #f8f5ea;
+            --bg-color: #fff;
             --text-color: #222;
             --border-color: #e5e5e5;
         }}
