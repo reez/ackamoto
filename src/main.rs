@@ -88,6 +88,27 @@ fn extract_ack_type(body: &str, mode: &Mode) -> Option<String> {
        lower_body.contains("understand your nack") || lower_body.contains("understand their nack") {
         return None;
     }
+    
+    // Check if ACK/NACK appears within quotation marks
+    // Simple check: if the text contains quotes around ACK/NACK patterns, skip it
+    let patterns_to_check = match mode {
+        Mode::Ack => vec![
+            "\"ack\"", "\"concept ack\"", "\"utack\"", "\"tested ack\"", 
+            "\"code review ack\"", "\"reack\"", "'ack'", "'concept ack'",
+            "'utack'", "'tested ack'", "'code review ack'", "'reack'"
+        ],
+        Mode::Nack => vec![
+            "\"nack\"", "\"still nack\"", "\"concept nack\"", "\"strong nack\"", 
+            "\"weak nack\"", "'nack'", "'still nack'", "'concept nack'",
+            "'strong nack'", "'weak nack'"
+        ],
+    };
+    
+    for pattern in patterns_to_check {
+        if lower_body.contains(pattern) {
+            return None;
+        }
+    }
 
     match mode {
         Mode::Ack => {
