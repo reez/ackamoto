@@ -89,11 +89,14 @@ fn extract_ack_type(body: &str, mode: &Mode) -> Option<String> {
                 return Some("Code Review ACK".to_string());
             }
 
-            // For regular ACK, ensure it's a standalone word
+            // For regular ACK or reACK, ensure it's a standalone word
             let words: Vec<&str> = lower_body.split_whitespace().collect();
             for word in words {
                 // Remove common punctuation from the word
                 let clean_word = word.trim_matches(|c: char| !c.is_alphanumeric());
+                if clean_word == "reack" {
+                    return Some("reACK".to_string());
+                }
                 if clean_word == "ack" {
                     return Some("ACK".to_string());
                 }
