@@ -71,7 +71,23 @@ fn create_headers(token: Option<String>) -> HeaderMap {
 }
 
 fn extract_ack_type(body: &str, mode: &Mode) -> Option<String> {
-    let lower_body = body.to_lowercase();
+    // Remove quoted lines (lines starting with ">") from the body
+    let unquoted_body: String = body
+        .lines()
+        .filter(|line| !line.trim().starts_with('>'))
+        .collect::<Vec<_>>()
+        .join("\n");
+    
+    let lower_body = unquoted_body.to_lowercase();
+    
+    // Check if this is discussing someone else's ACK/NACK
+    if lower_body.contains("your ack") || lower_body.contains("their ack") || 
+       lower_body.contains("his ack") || lower_body.contains("her ack") ||
+       lower_body.contains("your nack") || lower_body.contains("their nack") || 
+       lower_body.contains("his nack") || lower_body.contains("her nack") ||
+       lower_body.contains("understand your nack") || lower_body.contains("understand their nack") {
+        return None;
+    }
 
     match mode {
         Mode::Ack => {
