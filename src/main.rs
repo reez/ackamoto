@@ -88,6 +88,26 @@ fn extract_ack_type(body: &str, mode: &Mode) -> Option<String> {
        lower_body.contains("understand your nack") || lower_body.contains("understand their nack") {
         return None;
     }
+
+    // Check if this is requesting ACKs/NACKs from others
+    let request_patterns = vec![
+        "cc ", "ping ", "for concept ack", "for ack", "for nack", "for concept nack",
+        "asking for", "request", "need", "waiting for", "can you", "could you", 
+        "please", "would you"
+    ];
+
+    for pattern in request_patterns {
+        if lower_body.contains(pattern) {
+            // Check if the pattern appears before an ACK/NACK mention
+            if let Some(pattern_pos) = lower_body.find(pattern) {
+                let after_pattern = &lower_body[pattern_pos..];
+                if after_pattern.contains("concept ack") || after_pattern.contains("ack") || 
+                   after_pattern.contains("concept nack") || after_pattern.contains("nack") {
+                    return None;
+                }
+            }
+        }
+    }
     
     // Check if ACK/NACK appears within quotation marks
     // Simple check: if the text contains quotes around ACK/NACK patterns, skip it
