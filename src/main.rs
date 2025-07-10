@@ -468,10 +468,16 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         <img src="images/{}-logo.png" alt="{}" class="logo logo-light">
         <img src="images/{}-logo-dark.png" alt="{}" class="logo logo-dark">
     </div>
+    {}
     <p class="last-updated">Last updated at {} UTC</p>
 </body>
 </html>"#,
-            site_type, site_name, site_name, site_name, _site_title, site_name, _site_title, now.format("%Y-%m-%d %H:%M")
+            site_type, site_name, site_name, site_name, _site_title, site_name, _site_title,
+            match mode {
+                Mode::Ack => r#"<p class="last-updated">Looking for NACKs? → <a href="https://nackamoto.com" style="color: inherit; text-decoration: none;">nackamoto.com</a></p>"#,
+                Mode::Nack => r#"<p class="last-updated">Looking for ACKs? → <a href="https://ackamoto.com" style="color: inherit; text-decoration: none;">ackamoto.com</a></p>"#,
+            },
+            now.format("%Y-%m-%d %H:%M")
         );
     }
 
@@ -640,9 +646,15 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         <img src="images/{}-logo.png" alt="{}" class="logo logo-light">
         <img src="images/{}-logo-dark.png" alt="{}" class="logo logo-dark">
     </div>
+    {}
     <p class="last-updated">Last updated at {}</p>
 "#,
-        site_type, site_name, site_name, site_name, _site_title, site_name, _site_title, now.format("%Y-%m-%d %H:%M UTC")
+        site_type, site_name, site_name, site_name, _site_title, site_name, _site_title,
+        match mode {
+            Mode::Ack => r#"<p class="last-updated">Looking for NACKs? → <a href="https://nackamoto.com" style="color: inherit; text-decoration: none;">nackamoto.com</a></p>"#,
+            Mode::Nack => r#"<p class="last-updated">Looking for ACKs? → <a href="https://ackamoto.com" style="color: inherit; text-decoration: none;">ackamoto.com</a></p>"#,
+        },
+        now.format("%Y-%m-%d %H:%M UTC")
     ) + &sorted_dates
         .iter()
         .map(|date| {
