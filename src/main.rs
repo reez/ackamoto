@@ -133,7 +133,7 @@ fn extract_ack_type(body: &str, mode: &Mode) -> Option<String> {
     match mode {
         Mode::Ack => {
             // Check for standalone ACK patterns (with word boundaries)
-            if lower_body.contains("concept ack") {
+            if lower_body.contains("concept ack") || lower_body.contains("cack") {
                 return Some("Concept ACK".to_string());
             }
             if lower_body.contains("utack") {
@@ -161,7 +161,7 @@ fn extract_ack_type(body: &str, mode: &Mode) -> Option<String> {
         }
         Mode::Nack => {
             // Check for NACK patterns
-            if lower_body.contains("concept nack") {
+            if lower_body.contains("concept nack") || lower_body.contains("cnack") {
                 return Some("Concept NACK".to_string());
             }
             if lower_body.contains("strong nack") {
