@@ -409,7 +409,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         }}
         .title-section {{
             text-align: center;
-            margin-bottom: 8rem;
+            margin-bottom: 2rem;
         }}
         .logo {{
             height: 16rem;
@@ -533,7 +533,7 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
         }}
         .title-section {{
             text-align: center;
-            margin-bottom: 8rem;
+            margin-bottom: 2rem;
         }}
         .logo {{
             height: 16rem;
