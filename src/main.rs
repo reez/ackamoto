@@ -474,8 +474,8 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
 </html>"#,
             site_type, site_name, site_name, site_name, _site_title, site_name, _site_title,
             match mode {
-                Mode::Ack => r#"<p class="last-updated">Looking for NACKs? → <a href="https://nackamoto.com" style="color: inherit; text-decoration: none;">nackamoto.com</a></p>"#,
-                Mode::Nack => r#"<p class="last-updated">Looking for ACKs? → <a href="https://ackamoto.com" style="color: inherit; text-decoration: none;">ackamoto.com</a></p>"#,
+                Mode::Ack => r#"<p class="last-updated"><a href="https://nackamoto.com" style="color: inherit;">Looking for NACKs? → nackamoto.com</a></p>"#,
+                Mode::Nack => r#"<p class="last-updated"><a href="https://ackamoto.com" style="color: inherit;">Looking for ACKs? → ackamoto.com</a></p>"#,
             },
             now.format("%Y-%m-%d %H:%M")
         );
@@ -651,8 +651,8 @@ fn generate_html(acks: &[Ack], mode: &Mode) -> String {
 "#,
         site_type, site_name, site_name, site_name, _site_title, site_name, _site_title,
         match mode {
-            Mode::Ack => r#"<p class="last-updated">Looking for NACKs? → <a href="https://nackamoto.com" style="color: inherit; text-decoration: none;">nackamoto.com</a></p>"#,
-            Mode::Nack => r#"<p class="last-updated">Looking for ACKs? → <a href="https://ackamoto.com" style="color: inherit; text-decoration: none;">ackamoto.com</a></p>"#,
+            Mode::Ack => r#"<p class="last-updated"><a href="https://nackamoto.com" style="color: inherit;">Looking for NACKs? → nackamoto.com</a></p>"#,
+            Mode::Nack => r#"<p class="last-updated"><a href="https://ackamoto.com" style="color: inherit;">Looking for ACKs? → ackamoto.com</a></p>"#,
         },
         now.format("%Y-%m-%d %H:%M UTC")
     ) + &sorted_dates
