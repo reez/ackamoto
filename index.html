@@ -149,11 +149,17 @@
         <img src="images/ackamoto-logo-dark.png" alt="ACKamoto" class="logo logo-dark">
     </div>
     <p class="last-updated"><a href="https://nackamoto.com" style="color: inherit;">Looking for NACKs? → nackamoto.com</a></p>
-    <p class="last-updated">Last updated at 2025-07-29 12:04 UTC</p>
+    <p class="last-updated">Last updated at 2025-07-29 14:06 UTC</p>
     
     <h2 class="date-header">2025-07-29</h2>
     
     <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/33088" target="_blank" class="pr-number">#33088</a>
+            <div class="pr-title" title="doc: move `cmake -B build -LH` up in Unix build docs">doc: move `cmake -B build -LH` up in Unix build docs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/33088#issuecomment-3132408117" target="_blank" class="commenter">maflcko</a>
+        </div>
         <div class="ack-entry">
             <a href="https://github.com/bitcoin/bitcoin/pull/33086" target="_blank" class="pr-number">#33086</a>
             <div class="pr-title" title="contrib: [tracing] fix pointer argument handling in mempool_monitor.py">contrib: [tracing] fix pointer argument handling in mempool_monitor.py</div>
@@ -1337,36 +1343,5 @@
             <a href="https://github.com/bitcoin/bitcoin/pull/32760#issuecomment-2975964718" target="_blank" class="commenter">hebasto</a>
         </div>
     </div>
-    <script>
-        // Fix for mobile browsers not scrolling to comment fragments
-        document.addEventListener('DOMContentLoaded', function() {
-            // Detect if user is on a mobile device
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                // Get all PR comment links
-                const commentLinks = document.querySelectorAll('a.commenter[href*="#issuecomment"]');
-                
-                commentLinks.forEach(link => {
-                    const originalHref = link.href;
-                    
-                    link.addEventListener('click', function(e) {
-                        // Add timestamp to force cache bypass
-                        const timestamp = Date.now();
-                        const baseUrl = originalHref.split('#')[0];
-                        const fragment = originalHref.split('#')[1];
-                        
-                        // Temporarily modify href to include timestamp
-                        this.href = `${baseUrl}?t=${timestamp}#${fragment}`;
-                        
-                        // Reset href after click
-                        setTimeout(() => {
-                            this.href = originalHref;
-                        }, 100);
-                    });
-                });
-            }
-        });
-    </script>
 </body>
 </html>
