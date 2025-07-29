@@ -1337,5 +1337,36 @@
             <a href="https://github.com/bitcoin/bitcoin/pull/32760#issuecomment-2975964718" target="_blank" class="commenter">hebasto</a>
         </div>
     </div>
+    <script>
+        // Fix for mobile browsers not scrolling to comment fragments
+        document.addEventListener('DOMContentLoaded', function() {
+            // Detect if user is on a mobile device
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // Get all PR comment links
+                const commentLinks = document.querySelectorAll('a.commenter[href*="#issuecomment"]');
+                
+                commentLinks.forEach(link => {
+                    const originalHref = link.href;
+                    
+                    link.addEventListener('click', function(e) {
+                        // Add timestamp to force cache bypass
+                        const timestamp = Date.now();
+                        const baseUrl = originalHref.split('#')[0];
+                        const fragment = originalHref.split('#')[1];
+                        
+                        // Temporarily modify href to include timestamp
+                        this.href = `${baseUrl}?t=${timestamp}#${fragment}`;
+                        
+                        // Reset href after click
+                        setTimeout(() => {
+                            this.href = originalHref;
+                        }, 100);
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
