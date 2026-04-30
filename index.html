@@ -10,12 +10,14 @@
         :root {
             --bg-color: #fff;
             --text-color: #222;
+            --border-color: #e5e5e5;
         }
         
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-color: #131313;
                 --text-color: #fff;
+                --border-color: #333;
             }
         }
         
@@ -55,6 +57,18 @@
                 display: block;
             }
         }
+        .date-header {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 1rem;
+            color: #888;
+            text-align: left;
+            margin: 3rem 0 4rem 0;
+            letter-spacing: 0;
+            transform: scaleX(0.85);
+            transform-origin: left;
+            transform-origin: left;
+        }
         .last-updated {
             color: #888;
             font-size: 1rem;
@@ -69,13 +83,55 @@
         }
         .date-range {
             color: #888;
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-bottom: 3rem;
             margin-top: 0;
             text-align: left;
-            font-family: 'Roboto Mono', monospace;
-            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
             letter-spacing: 0;
+            transform: scaleX(0.85);
+            transform-origin: left;
+        }
+        .acks-container {
+            margin-top: 1rem;
+        }
+        .ack-entry {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+        a {
+            color: var(--text-color);
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+        }
+        a:hover {
+            color: var(--text-color);
+        }
+        .pr-title {
+            word-wrap: break-word;
+            line-height: 1rem;
+        }
+        a.pr-number {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .pr-title, .ack-type {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        a.commenter {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .ack-type {
+            display: inline-block;
+            padding: 0.5rem;
+            border: 2px solid var(--text-color);
+            width: fit-content;
+            text-decoration: none;
         }
         @media (max-width: 768px) {
             body {
@@ -93,6 +149,1075 @@
         <img src="images/ackamoto-logo-dark.png" alt="ACKamoto" class="logo logo-dark">
     </div>
     <p class="last-updated"><a href="https://nackamoto.com" style="color: inherit;">Looking for NACKs? → nackamoto.com</a></p>
-    <p class="last-updated">Last updated at 2026-04-29 12:29 UTC</p>
+    <p class="last-updated">Last updated at 2026-04-30 00:27 UTC</p>
+    
+    <h2 class="date-header">2026-04-29</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35175" target="_blank" class="pr-number">#35175</a>
+            <div class="pr-title" title="multi_index: fix compilation failure with boost >= 1.91">multi_index: fix compilation failure with boost &gt;= 1.91</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35175#issuecomment-4345484138" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35176" target="_blank" class="pr-number">#35176</a>
+            <div class="pr-title" title="ci: reduce ccache size on GHA runners">ci: reduce ccache size on GHA runners</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35176#issuecomment-4345460724" target="_blank" class="commenter">fanquake</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35114" target="_blank" class="pr-number">#35114</a>
+            <div class="pr-title" title="test: NodeClockContext follow-ups">test: NodeClockContext follow-ups</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35114#issuecomment-4343799723" target="_blank" class="commenter">kevkevinpal</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35070" target="_blank" class="pr-number">#35070</a>
+            <div class="pr-title" title="validation: prevent FindMostWorkChain from causing UB">validation: prevent FindMostWorkChain from causing UB</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35070#issuecomment-4342251201" target="_blank" class="commenter">sedited</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-28</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35165" target="_blank" class="pr-number">#35165</a>
+            <div class="pr-title" title="cmake: Remove NetBSD-specific workaround from `add_boost_if_needed`">cmake: Remove NetBSD-specific workaround from `add_boost_if_needed`</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Tested ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35165#issuecomment-4339673646" target="_blank" class="commenter">davidgumberg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35173" target="_blank" class="pr-number">#35173</a>
+            <div class="pr-title" title="util: shorten thread names to avoid Linux truncation">util: shorten thread names to avoid Linux truncation</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35173#issuecomment-4337667796" target="_blank" class="commenter">andrewtoth</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35164" target="_blank" class="pr-number">#35164</a>
+            <div class="pr-title" title="test: cover P2SH sigop counting in test_witness_sigops">test: cover P2SH sigop counting in test_witness_sigops</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35164#issuecomment-4337294895" target="_blank" class="commenter">haishmg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35170" target="_blank" class="pr-number">#35170</a>
+            <div class="pr-title" title="test: Better test coverage for legacy ParseHDKeypath()">test: Better test coverage for legacy ParseHDKeypath()</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35170#issuecomment-4337163769" target="_blank" class="commenter">haishmg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35167" target="_blank" class="pr-number">#35167</a>
+            <div class="pr-title" title="Convert check-deps.sh to python">Convert check-deps.sh to python</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35167#issuecomment-4336129264" target="_blank" class="commenter">sedited</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34892" target="_blank" class="pr-number">#34892</a>
+            <div class="pr-title" title="net: Warn when Tor onion service lacks a dedicated onion bind">net: Warn when Tor onion service lacks a dedicated onion bind</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Tested ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34892#issuecomment-4335988580" target="_blank" class="commenter">winterrdog</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-27</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35167" target="_blank" class="pr-number">#35167</a>
+            <div class="pr-title" title="Convert check-deps.sh to python">Convert check-deps.sh to python</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35167#issuecomment-4330341007" target="_blank" class="commenter">sedited</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35070" target="_blank" class="pr-number">#35070</a>
+            <div class="pr-title" title="validation: prevent FindMostWorkChain from causing UB">validation: prevent FindMostWorkChain from causing UB</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35070#issuecomment-4328791461" target="_blank" class="commenter">marcofleon</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35149" target="_blank" class="pr-number">#35149</a>
+            <div class="pr-title" title="doc: clarify clang-tidy in developer notes">doc: clarify clang-tidy in developer notes</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Code Review ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35149#issuecomment-4327849694" target="_blank" class="commenter">l0rinc</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-24</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35097" target="_blank" class="pr-number">#35097</a>
+            <div class="pr-title" title="util: Return uint64_t from _MiB and _GiB operators">util: Return uint64_t from _MiB and _GiB operators</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35097#issuecomment-4316567869" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35148" target="_blank" class="pr-number">#35148</a>
+            <div class="pr-title" title="refactor: Remove confusing DataStream::in_avail() alias">refactor: Remove confusing DataStream::in_avail() alias</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Code Review ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35148#issuecomment-4315748838" target="_blank" class="commenter">l0rinc</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35049" target="_blank" class="pr-number">#35049</a>
+            <div class="pr-title" title="test: remove circular dependency between authproxy and util">test: remove circular dependency between authproxy and util</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Code Review ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35049#issuecomment-4314310836" target="_blank" class="commenter">l0rinc</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35097" target="_blank" class="pr-number">#35097</a>
+            <div class="pr-title" title="util: Return uint64_t from _MiB and _GiB operators">util: Return uint64_t from _MiB and _GiB operators</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35097#issuecomment-4314041023" target="_blank" class="commenter">l0rinc</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-23</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35128" target="_blank" class="pr-number">#35128</a>
+            <div class="pr-title" title="dbwrapper: avoid copying `CDBIterator` keys in `GetKey()`">dbwrapper: avoid copying `CDBIterator` keys in `GetKey()`</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35128#issuecomment-4306898095" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34885" target="_blank" class="pr-number">#34885</a>
+            <div class="pr-title" title="kernel: expose btck_block_tree_entry_get_ancestor">kernel: expose btck_block_tree_entry_get_ancestor</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34885#issuecomment-4305457392" target="_blank" class="commenter">alexanderwiederin</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34893" target="_blank" class="pr-number">#34893</a>
+            <div class="pr-title" title="psbt: preserve proprietary fields when combining PSBTs">psbt: preserve proprietary fields when combining PSBTs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34893#issuecomment-4304761159" target="_blank" class="commenter">theStack</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-22</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35140" target="_blank" class="pr-number">#35140</a>
+            <div class="pr-title" title="ci: Temporarily move CI from Cirrus to GHA">ci: Temporarily move CI from Cirrus to GHA</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35140#issuecomment-4299837543" target="_blank" class="commenter">m3dwards</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35140" target="_blank" class="pr-number">#35140</a>
+            <div class="pr-title" title="ci: Temporarily move CI from Cirrus to GHA">ci: Temporarily move CI from Cirrus to GHA</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35140#issuecomment-4299748612" target="_blank" class="commenter">m3dwards</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35138" target="_blank" class="pr-number">#35138</a>
+            <div class="pr-title" title="doc: add missed advisory to 31.0 rel notes">doc: add missed advisory to 31.0 rel notes</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35138#issuecomment-4298464109" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35138" target="_blank" class="pr-number">#35138</a>
+            <div class="pr-title" title="doc: add missed advisory to 31.0 rel notes">doc: add missed advisory to 31.0 rel notes</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35138#issuecomment-4296648415" target="_blank" class="commenter">darosior</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35000" target="_blank" class="pr-number">#35000</a>
+            <div class="pr-title" title="test: Add block validation unit tests">test: Add block validation unit tests</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35000#issuecomment-4295432240" target="_blank" class="commenter">sedited</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-21</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35132" target="_blank" class="pr-number">#35132</a>
+            <div class="pr-title" title="doc: update release process to mention security advisories pre-announcements">doc: update release process to mention security advisories pre-announcements</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35132#issuecomment-4290862761" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34927" target="_blank" class="pr-number">#34927</a>
+            <div class="pr-title" title="test: Check that RPCs do not time out, even under load">test: Check that RPCs do not time out, even under load</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34927#issuecomment-4289366227" target="_blank" class="commenter">enirox001</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35025" target="_blank" class="pr-number">#35025</a>
+            <div class="pr-title" title="refactor: use `SpanReader` in deserialization benchmarks">refactor: use `SpanReader` in deserialization benchmarks</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35025#issuecomment-4288037982" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35127" target="_blank" class="pr-number">#35127</a>
+            <div class="pr-title" title="fuzz: remove redundant CScript method calls from script harness">fuzz: remove redundant CScript method calls from script harness</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35127#issuecomment-4286044473" target="_blank" class="commenter">maflcko</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-20</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35123" target="_blank" class="pr-number">#35123</a>
+            <div class="pr-title" title="wallet: remove outdated arguments from wallet scanning methods">wallet: remove outdated arguments from wallet scanning methods</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35123#issuecomment-4284506643" target="_blank" class="commenter">Bicaru20</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35124" target="_blank" class="pr-number">#35124</a>
+            <div class="pr-title" title="bench: fix benchmark fixtures and setup checks">bench: fix benchmark fixtures and setup checks</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35124#issuecomment-4283721871" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35054" target="_blank" class="pr-number">#35054</a>
+            <div class="pr-title" title="p2p: UTXO set sharing">p2p: UTXO set sharing</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35054#issuecomment-4282948342" target="_blank" class="commenter">svanstaa</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35006" target="_blank" class="pr-number">#35006</a>
+            <div class="pr-title" title="cli, rpc: add -rpcid option for custom request IDs">cli, rpc: add -rpcid option for custom request IDs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35006#issuecomment-4279888305" target="_blank" class="commenter">maflcko</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-19</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34893" target="_blank" class="pr-number">#34893</a>
+            <div class="pr-title" title="psbt: preserve proprietary fields when combining PSBTs">psbt: preserve proprietary fields when combining PSBTs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34893#issuecomment-4277116839" target="_blank" class="commenter">nervana21</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-18</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35087" target="_blank" class="pr-number">#35087</a>
+            <div class="pr-title" title="tor: limit torcontrol line size that is processed to prevent OOM">tor: limit torcontrol line size that is processed to prevent OOM</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35087#issuecomment-4273451752" target="_blank" class="commenter">fjahr</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35086" target="_blank" class="pr-number">#35086</a>
+            <div class="pr-title" title="test: interface_http follow-ups">test: interface_http follow-ups</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35086#issuecomment-4273296020" target="_blank" class="commenter">fjahr</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-17</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35097" target="_blank" class="pr-number">#35097</a>
+            <div class="pr-title" title="util: Return uint64_t from _MiB and _GiB operators">util: Return uint64_t from _MiB and _GiB operators</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35097#issuecomment-4271227664" target="_blank" class="commenter">kevkevinpal</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35086" target="_blank" class="pr-number">#35086</a>
+            <div class="pr-title" title="test: interface_http follow-ups">test: interface_http follow-ups</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35086#issuecomment-4269294640" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35097" target="_blank" class="pr-number">#35097</a>
+            <div class="pr-title" title="util: Return uint64_t from _MiB and _GiB operators">util: Return uint64_t from _MiB and _GiB operators</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35097#issuecomment-4269063056" target="_blank" class="commenter">hodlinator</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35097" target="_blank" class="pr-number">#35097</a>
+            <div class="pr-title" title="util: Return uint64_t from _MiB and _GiB operators">util: Return uint64_t from _MiB and _GiB operators</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35097#issuecomment-4268645588" target="_blank" class="commenter">l0rinc</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35099" target="_blank" class="pr-number">#35099</a>
+            <div class="pr-title" title="ci: drop `-lstdc++` from msan fuzz job">ci: drop `-lstdc++` from msan fuzz job</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35099#issuecomment-4268225941" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35095" target="_blank" class="pr-number">#35095</a>
+            <div class="pr-title" title="doc: fix typos and minor formatting issues">doc: fix typos and minor formatting issues</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35095#issuecomment-4265756157" target="_blank" class="commenter">maflcko</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-16</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35078" target="_blank" class="pr-number">#35078</a>
+            <div class="pr-title" title="validation: merge `PeekCoin` into `GetCoin`">validation: merge `PeekCoin` into `GetCoin`</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35078#issuecomment-4261047582" target="_blank" class="commenter">ryanofsky</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35086" target="_blank" class="pr-number">#35086</a>
+            <div class="pr-title" title="test: interface_http follow-ups">test: interface_http follow-ups</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Code Review ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35086#issuecomment-4260120079" target="_blank" class="commenter">fjahr</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35089" target="_blank" class="pr-number">#35089</a>
+            <div class="pr-title" title="test: Allow to set height in create_block">test: Allow to set height in create_block</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">reACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35089#issuecomment-4260014148" target="_blank" class="commenter">l0rinc</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35090" target="_blank" class="pr-number">#35090</a>
+            <div class="pr-title" title="fuzz: add p2p_private_broadcast harness">fuzz: add p2p_private_broadcast harness</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35090#issuecomment-4259775258" target="_blank" class="commenter">vasild</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-15</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35084" target="_blank" class="pr-number">#35084</a>
+            <div class="pr-title" title="ipc: Support for windows support">ipc: Support for windows support</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35084#issuecomment-4254228520" target="_blank" class="commenter">stickies-v</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35069" target="_blank" class="pr-number">#35069</a>
+            <div class="pr-title" title="Refactor keypath parser">Refactor keypath parser</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35069#issuecomment-4253053028" target="_blank" class="commenter">Sjors</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35003" target="_blank" class="pr-number">#35003</a>
+            <div class="pr-title" title="validation: improve block data I/O error handling in P2P paths">validation: improve block data I/O error handling in P2P paths</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35003#issuecomment-4252843018" target="_blank" class="commenter">rkrux</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35080" target="_blank" class="pr-number">#35080</a>
+            <div class="pr-title" title="test: Add missing self.options.timeout_factor scale in tool_bitcoin_chainstate.py">test: Add missing self.options.timeout_factor scale in tool_bitcoin_chainstate.py</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35080#issuecomment-4252485282" target="_blank" class="commenter">fanquake</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-14</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35077" target="_blank" class="pr-number">#35077</a>
+            <div class="pr-title" title="kernel: build: remove unused serfloat dependency">kernel: build: remove unused serfloat dependency</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35077#issuecomment-4247711314" target="_blank" class="commenter">davidgumberg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35038" target="_blank" class="pr-number">#35038</a>
+            <div class="pr-title" title="bench: add script verification benchmark for P2TR script-path spends">bench: add script verification benchmark for P2TR script-path spends</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">reACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35038#issuecomment-4247474469" target="_blank" class="commenter">davidgumberg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35018" target="_blank" class="pr-number">#35018</a>
+            <div class="pr-title" title="wallet, bench: Use Nanobench setup() for wallet benchmarks, and remove DuplicateMockDatabase">wallet, bench: Use Nanobench setup() for wallet benchmarks, and remove DuplicateMockDatabase</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35018#issuecomment-4245904475" target="_blank" class="commenter">theStack</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35003" target="_blank" class="pr-number">#35003</a>
+            <div class="pr-title" title="validation: improve block data I/O error handling in P2P paths">validation: improve block data I/O error handling in P2P paths</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35003#issuecomment-4245401143" target="_blank" class="commenter">maflcko</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-13</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35038" target="_blank" class="pr-number">#35038</a>
+            <div class="pr-title" title="bench: add script verification benchmark for P2TR script-path spends">bench: add script verification benchmark for P2TR script-path spends</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">reACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35038#issuecomment-4239433546" target="_blank" class="commenter">davidgumberg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35037" target="_blank" class="pr-number">#35037</a>
+            <div class="pr-title" title="ipc: support per-address max-connections options on -ipcbind">ipc: support per-address max-connections options on -ipcbind</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35037#issuecomment-4237709309" target="_blank" class="commenter">kevkevinpal</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35024" target="_blank" class="pr-number">#35024</a>
+            <div class="pr-title" title="ci: Mitigate network issues in native Windows job">ci: Mitigate network issues in native Windows job</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35024#issuecomment-4237689255" target="_blank" class="commenter">maflcko</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-12</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35054" target="_blank" class="pr-number">#35054</a>
+            <div class="pr-title" title="p2p: UTXO set sharing">p2p: UTXO set sharing</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35054#issuecomment-4232617678" target="_blank" class="commenter">andrewtoth</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35000" target="_blank" class="pr-number">#35000</a>
+            <div class="pr-title" title="test: Add block validation unit tests">test: Add block validation unit tests</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35000#issuecomment-4232518098" target="_blank" class="commenter">w0xlt</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-10</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35047" target="_blank" class="pr-number">#35047</a>
+            <div class="pr-title" title="doc: fix typo 'parlor' to 'parlance' in developer-notes">doc: fix typo 'parlor' to 'parlance' in developer-notes</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35047#issuecomment-4222934243" target="_blank" class="commenter">l0rinc</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35047" target="_blank" class="pr-number">#35047</a>
+            <div class="pr-title" title="doc: fix typo 'parlor' to 'parlance' in developer-notes">doc: fix typo 'parlor' to 'parlance' in developer-notes</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35047#issuecomment-4222855062" target="_blank" class="commenter">maflcko</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-09</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34886" target="_blank" class="pr-number">#34886</a>
+            <div class="pr-title" title="test: Rework Single Random Draw coin selection tests">test: Rework Single Random Draw coin selection tests</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34886#issuecomment-4217400300" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35032" target="_blank" class="pr-number">#35032</a>
+            <div class="pr-title" title="net_processing: don't modify addrman for private broadcast connections">net_processing: don't modify addrman for private broadcast connections</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35032#issuecomment-4217239303" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34922" target="_blank" class="pr-number">#34922</a>
+            <div class="pr-title" title="test: Use BasicTestingSetup when sufficient">test: Use BasicTestingSetup when sufficient</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34922#issuecomment-4217023966" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34922" target="_blank" class="pr-number">#34922</a>
+            <div class="pr-title" title="test: Use BasicTestingSetup when sufficient">test: Use BasicTestingSetup when sufficient</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34922#issuecomment-4215549807" target="_blank" class="commenter">l0rinc</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35037" target="_blank" class="pr-number">#35037</a>
+            <div class="pr-title" title="ipc: support per-address max-connections options on -ipcbind">ipc: support per-address max-connections options on -ipcbind</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35037#issuecomment-4215111030" target="_blank" class="commenter">ryanofsky</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35036" target="_blank" class="pr-number">#35036</a>
+            <div class="pr-title" title="ipc: support per-address max-connections options on -ipcbind">ipc: support per-address max-connections options on -ipcbind</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35036#issuecomment-4214961912" target="_blank" class="commenter">ryanofsky</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35032" target="_blank" class="pr-number">#35032</a>
+            <div class="pr-title" title="net_processing: don't modify addrman for private broadcast connections">net_processing: don't modify addrman for private broadcast connections</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35032#issuecomment-4214473047" target="_blank" class="commenter">instagibbs</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35032" target="_blank" class="pr-number">#35032</a>
+            <div class="pr-title" title="net_processing: don't modify addrman for private broadcast connections">net_processing: don't modify addrman for private broadcast connections</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Code Review ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35032#issuecomment-4214426772" target="_blank" class="commenter">l0rinc</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35032" target="_blank" class="pr-number">#35032</a>
+            <div class="pr-title" title="net_processing: don't modify addrman for private broadcast connections">net_processing: don't modify addrman for private broadcast connections</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35032#issuecomment-4211429738" target="_blank" class="commenter">andrewtoth</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-08</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35034" target="_blank" class="pr-number">#35034</a>
+            <div class="pr-title" title="[31.x] Fix guix build and rc4">[31.x] Fix guix build and rc4</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35034#issuecomment-4210085302" target="_blank" class="commenter">davidgumberg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35034" target="_blank" class="pr-number">#35034</a>
+            <div class="pr-title" title="[31.x] Fix guix build and rc4">[31.x] Fix guix build and rc4</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35034#issuecomment-4209685838" target="_blank" class="commenter">m3dwards</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35034" target="_blank" class="pr-number">#35034</a>
+            <div class="pr-title" title="[31.x] Fix guix build and rc4">[31.x] Fix guix build and rc4</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35034#issuecomment-4209603444" target="_blank" class="commenter">svanstaa</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34905" target="_blank" class="pr-number">#34905</a>
+            <div class="pr-title" title="Update string and net utils for future HTTP operations">Update string and net utils for future HTTP operations</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Code Review ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34905#issuecomment-4209485949" target="_blank" class="commenter">fjahr</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35034" target="_blank" class="pr-number">#35034</a>
+            <div class="pr-title" title="[31.x] Fix guix build and rc4">[31.x] Fix guix build and rc4</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35034#issuecomment-4209334679" target="_blank" class="commenter">pinheadmz</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35032" target="_blank" class="pr-number">#35032</a>
+            <div class="pr-title" title="net_processing: don't modify addrman for private broadcast connections">net_processing: don't modify addrman for private broadcast connections</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35032#issuecomment-4206481879" target="_blank" class="commenter">instagibbs</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35028" target="_blank" class="pr-number">#35028</a>
+            <div class="pr-title" title="[31.x] Backports + rc3">[31.x] Backports + rc3</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">utACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35028#issuecomment-4205003015" target="_blank" class="commenter">Sjors</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-07</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35014" target="_blank" class="pr-number">#35014</a>
+            <div class="pr-title" title="test: remove macOS REDUCE_EXPORTS exception workaround">test: remove macOS REDUCE_EXPORTS exception workaround</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35014#issuecomment-4202223438" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34897" target="_blank" class="pr-number">#34897</a>
+            <div class="pr-title" title="indexes: Don't commit ahead of the flushed chainstate">indexes: Don't commit ahead of the flushed chainstate</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34897#issuecomment-4202159655" target="_blank" class="commenter">ryanofsky</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34977" target="_blank" class="pr-number">#34977</a>
+            <div class="pr-title" title="Update libmultiprocess subtree to fix test timeout">Update libmultiprocess subtree to fix test timeout</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34977#issuecomment-4201967004" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35009" target="_blank" class="pr-number">#35009</a>
+            <div class="pr-title" title="wallet, rpc: add include_change parameter to listtransactions">wallet, rpc: add include_change parameter to listtransactions</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35009#issuecomment-4201938065" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34884" target="_blank" class="pr-number">#34884</a>
+            <div class="pr-title" title="validation: remove unused code in FindMostWorkChain">validation: remove unused code in FindMostWorkChain</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Code Review ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34884#issuecomment-4201609336" target="_blank" class="commenter">fjahr</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34999" target="_blank" class="pr-number">#34999</a>
+            <div class="pr-title" title="refactor: pre-push-hook.sh potential regression">refactor: pre-push-hook.sh potential regression</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34999#issuecomment-4197990301" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35001" target="_blank" class="pr-number">#35001</a>
+            <div class="pr-title" title="validation: Remove stale `BlockManager` param from `ContextualCheckBlockHeader`">validation: Remove stale `BlockManager` param from `ContextualCheckBlockHeader`</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35001#issuecomment-4197673042" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35018" target="_blank" class="pr-number">#35018</a>
+            <div class="pr-title" title="wallet, bench: Use Nanobench setup() for wallet benchmarks, and remove DuplicateMockDatabase">wallet, bench: Use Nanobench setup() for wallet benchmarks, and remove DuplicateMockDatabase</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35018#issuecomment-4195729088" target="_blank" class="commenter">davidgumberg</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-06</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35003" target="_blank" class="pr-number">#35003</a>
+            <div class="pr-title" title="validation: improve block data I/O error handling in P2P paths">validation: improve block data I/O error handling in P2P paths</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35003#issuecomment-4194048122" target="_blank" class="commenter">pinheadmz</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/35011" target="_blank" class="pr-number">#35011</a>
+            <div class="pr-title" title="ci, iwyu: Fix warnings in `src/script` and treat them as errors">ci, iwyu: Fix warnings in `src/script` and treat them as errors</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/35011#issuecomment-4193509176" target="_blank" class="commenter">kevkevinpal</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34989" target="_blank" class="pr-number">#34989</a>
+            <div class="pr-title" title="doc: remove stale shortid collision TODO">doc: remove stale shortid collision TODO</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34989#issuecomment-4192288198" target="_blank" class="commenter">instagibbs</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34989" target="_blank" class="pr-number">#34989</a>
+            <div class="pr-title" title="doc: remove stale shortid collision TODO">doc: remove stale shortid collision TODO</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34989#issuecomment-4191375907" target="_blank" class="commenter">l0rinc</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34967" target="_blank" class="pr-number">#34967</a>
+            <div class="pr-title" title="doc: Discourage trailing doxygen comments, and fix the broken ones">doc: Discourage trailing doxygen comments, and fix the broken ones</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34967#issuecomment-4191288789" target="_blank" class="commenter">l0rinc</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-04</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34997" target="_blank" class="pr-number">#34997</a>
+            <div class="pr-title" title="p2p: Don't participate in addr relay with feelers">p2p: Don't participate in addr relay with feelers</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34997#issuecomment-4187157901" target="_blank" class="commenter">taki-abedesselam</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34873" target="_blank" class="pr-number">#34873</a>
+            <div class="pr-title" title="net: fix premature stale flagging of unpicked private broadcast txs">net: fix premature stale flagging of unpicked private broadcast txs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34873#issuecomment-4185791513" target="_blank" class="commenter">achow101</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-03</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34991" target="_blank" class="pr-number">#34991</a>
+            <div class="pr-title" title="test: fix feature_index_prune.py bug when using --usecli">test: fix feature_index_prune.py bug when using --usecli</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34991#issuecomment-4182676822" target="_blank" class="commenter">Bicaru20</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-02</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34991" target="_blank" class="pr-number">#34991</a>
+            <div class="pr-title" title="test: fix feature_index_prune.py bug when using --usecli">test: fix feature_index_prune.py bug when using --usecli</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34991#issuecomment-4180928664" target="_blank" class="commenter">w0xlt</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34965" target="_blank" class="pr-number">#34965</a>
+            <div class="pr-title" title="cli: Return more helpful authentication errors">cli: Return more helpful authentication errors</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34965#issuecomment-4180882267" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34965" target="_blank" class="pr-number">#34965</a>
+            <div class="pr-title" title="cli: Return more helpful authentication errors">cli: Return more helpful authentication errors</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34965#issuecomment-4179137812" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34887" target="_blank" class="pr-number">#34887</a>
+            <div class="pr-title" title="fuzz: target CDBWrapper">fuzz: target CDBWrapper</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34887#issuecomment-4178657938" target="_blank" class="commenter">marcofleon</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34988" target="_blank" class="pr-number">#34988</a>
+            <div class="pr-title" title="rpc: fix initialization-order-fiasco by lazy-init of decodepsbt_inputs">rpc: fix initialization-order-fiasco by lazy-init of decodepsbt_inputs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34988#issuecomment-4175286701" target="_blank" class="commenter">maflcko</a>
+        </div>
+    
+    <h2 class="date-header">2026-04-01</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34978" target="_blank" class="pr-number">#34978</a>
+            <div class="pr-title" title="init: Reserve file descriptors for IPC connections">init: Reserve file descriptors for IPC connections</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34978#issuecomment-4173616048" target="_blank" class="commenter">w0xlt</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34905" target="_blank" class="pr-number">#34905</a>
+            <div class="pr-title" title="Update string and net utils for future HTTP operations">Update string and net utils for future HTTP operations</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Code Review ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34905#issuecomment-4173408019" target="_blank" class="commenter">fjahr</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34976" target="_blank" class="pr-number">#34976</a>
+            <div class="pr-title" title="lint: Clarify rmtree/remove_all error message with preferred alternatives">lint: Clarify rmtree/remove_all error message with preferred alternatives</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34976#issuecomment-4172773057" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34988" target="_blank" class="pr-number">#34988</a>
+            <div class="pr-title" title="rpc: fix initialization-order-fiasco by lazy-init of decodepsbt_inputs">rpc: fix initialization-order-fiasco by lazy-init of decodepsbt_inputs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34988#issuecomment-4172346770" target="_blank" class="commenter">davidgumberg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34980" target="_blank" class="pr-number">#34980</a>
+            <div class="pr-title" title="Require captcha for all pull request submissions to prevent LLM abuse">Require captcha for all pull request submissions to prevent LLM abuse</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34980#issuecomment-4172298282" target="_blank" class="commenter">dathonohm</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34965" target="_blank" class="pr-number">#34965</a>
+            <div class="pr-title" title="cli: Return more helpful authentication errors">cli: Return more helpful authentication errors</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">utACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34965#issuecomment-4172223357" target="_blank" class="commenter">davidgumberg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34976" target="_blank" class="pr-number">#34976</a>
+            <div class="pr-title" title="lint: Clarify rmtree/remove_all error message with preferred alternatives">lint: Clarify rmtree/remove_all error message with preferred alternatives</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34976#issuecomment-4172142595" target="_blank" class="commenter">davidgumberg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34982" target="_blank" class="pr-number">#34982</a>
+            <div class="pr-title" title="kernel: Remove NONNULL annotation from destroy method">kernel: Remove NONNULL annotation from destroy method</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34982#issuecomment-4172122854" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34986" target="_blank" class="pr-number">#34986</a>
+            <div class="pr-title" title="docs: remove duplicate ///@} from bitcoinkernel.h">docs: remove duplicate ///@} from bitcoinkernel.h</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34986#issuecomment-4171065672" target="_blank" class="commenter">kevkevinpal</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34980" target="_blank" class="pr-number">#34980</a>
+            <div class="pr-title" title="Require captcha for all pull request submissions to prevent LLM abuse">Require captcha for all pull request submissions to prevent LLM abuse</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34980#issuecomment-4171037297" target="_blank" class="commenter">hsmiranda</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34982" target="_blank" class="pr-number">#34982</a>
+            <div class="pr-title" title="kernel: Remove NONNULL annotation from destroy method">kernel: Remove NONNULL annotation from destroy method</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34982#issuecomment-4171025011" target="_blank" class="commenter">kevkevinpal</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34986" target="_blank" class="pr-number">#34986</a>
+            <div class="pr-title" title="docs: remove duplicate ///@} from bitcoinkernel.h">docs: remove duplicate ///@} from bitcoinkernel.h</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34986#issuecomment-4170897980" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34982" target="_blank" class="pr-number">#34982</a>
+            <div class="pr-title" title="kernel: Remove NONNULL annotation from destroy method">kernel: Remove NONNULL annotation from destroy method</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34982#issuecomment-4170438506" target="_blank" class="commenter">yuvicc</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34980" target="_blank" class="pr-number">#34980</a>
+            <div class="pr-title" title="Require captcha for all pull request submissions to prevent LLM abuse">Require captcha for all pull request submissions to prevent LLM abuse</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34980#issuecomment-4168914832" target="_blank" class="commenter">polespinasa</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34957" target="_blank" class="pr-number">#34957</a>
+            <div class="pr-title" title="policy: remove incorrect `MANDATORY_SCRIPT_VERIFY_FLAGS` comment">policy: remove incorrect `MANDATORY_SCRIPT_VERIFY_FLAGS` comment</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">utACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34957#issuecomment-4168118321" target="_blank" class="commenter">ajtowns</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34956" target="_blank" class="pr-number">#34956</a>
+            <div class="pr-title" title="depends, qt: Fix build on aarch64 macOS 26.4">depends, qt: Fix build on aarch64 macOS 26.4</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34956#issuecomment-4166576690" target="_blank" class="commenter">fanquake</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-31</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34935" target="_blank" class="pr-number">#34935</a>
+            <div class="pr-title" title="cli: Return more correct error on -norpccookiefile without -rpcpassword">cli: Return more correct error on -norpccookiefile without -rpcpassword</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34935#issuecomment-4161182197" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34958" target="_blank" class="pr-number">#34958</a>
+            <div class="pr-title" title="test: mining: add coverage for GBT's &quot;coinbasevalue&quot; result field">test: mining: add coverage for GBT's "coinbasevalue" result field</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34958#issuecomment-4160447217" target="_blank" class="commenter">Sjors</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34958" target="_blank" class="pr-number">#34958</a>
+            <div class="pr-title" title="test: mining: add coverage for GBT's &quot;coinbasevalue&quot; result field">test: mining: add coverage for GBT's "coinbasevalue" result field</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34958#issuecomment-4160411328" target="_blank" class="commenter">maflcko</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-30</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34882" target="_blank" class="pr-number">#34882</a>
+            <div class="pr-title" title="refactor: Use NodeClock::time_point in more places">refactor: Use NodeClock::time_point in more places</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34882#issuecomment-4156164699" target="_blank" class="commenter">stickies-v</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34952" target="_blank" class="pr-number">#34952</a>
+            <div class="pr-title" title="Update libmultiprocess subtree in 31.x branch to fix race conditions on disconnects">Update libmultiprocess subtree in 31.x branch to fix race conditions on disconnects</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34952#issuecomment-4152865885" target="_blank" class="commenter">Sjors</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34943" target="_blank" class="pr-number">#34943</a>
+            <div class="pr-title" title="ci: add delay between commits while testing all ancestor commits">ci: add delay between commits while testing all ancestor commits</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34943#issuecomment-4152610305" target="_blank" class="commenter">maflcko</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-27</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34926" target="_blank" class="pr-number">#34926</a>
+            <div class="pr-title" title="test: Replace DEBUG_LOG_OUT with -printtoconsole=1">test: Replace DEBUG_LOG_OUT with -printtoconsole=1</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34926#issuecomment-4142802440" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34938" target="_blank" class="pr-number">#34938</a>
+            <div class="pr-title" title="refactor: Return std::optional over bool+mut&">refactor: Return std::optional over bool+mut&</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34938#issuecomment-4142776403" target="_blank" class="commenter">stickies-v</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34934" target="_blank" class="pr-number">#34934</a>
+            <div class="pr-title" title="fuzz: exercise ForNode/ForEachNode callbacks in connman fuzz harness">fuzz: exercise ForNode/ForEachNode callbacks in connman fuzz harness</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34934#issuecomment-4142671939" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34931" target="_blank" class="pr-number">#34931</a>
+            <div class="pr-title" title="validation: abort on DB unreadable coins instead of treating them as missing">validation: abort on DB unreadable coins instead of treating them as missing</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34931#issuecomment-4140857189" target="_blank" class="commenter">fjahr</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-26</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34931" target="_blank" class="pr-number">#34931</a>
+            <div class="pr-title" title="validation: abort on DB unreadable coins instead of treating them as missing">validation: abort on DB unreadable coins instead of treating them as missing</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34931#issuecomment-4138758639" target="_blank" class="commenter">w0xlt</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34931" target="_blank" class="pr-number">#34931</a>
+            <div class="pr-title" title="validation: abort on DB unreadable coins instead of treating them as missing">validation: abort on DB unreadable coins instead of treating them as missing</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34931#issuecomment-4138291648" target="_blank" class="commenter">stickies-v</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34922" target="_blank" class="pr-number">#34922</a>
+            <div class="pr-title" title="test: Use BasicTestingSetup when sufficient">test: Use BasicTestingSetup when sufficient</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34922#issuecomment-4137357535" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34886" target="_blank" class="pr-number">#34886</a>
+            <div class="pr-title" title="test: Rework Single Random Draw coin selection tests">test: Rework Single Random Draw coin selection tests</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">reACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34886#issuecomment-4130616071" target="_blank" class="commenter">brunoerg</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-25</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34919" target="_blank" class="pr-number">#34919</a>
+            <div class="pr-title" title="test: script: boundary at exactly 65535 bytes must use OP_PUSHDATA2">test: script: boundary at exactly 65535 bytes must use OP_PUSHDATA2</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34919#issuecomment-4130001312" target="_blank" class="commenter">danielabrozzoni</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34915" target="_blank" class="pr-number">#34915</a>
+            <div class="pr-title" title="doc: archive release notes for v28.4">doc: archive release notes for v28.4</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34915#issuecomment-4129682449" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34920" target="_blank" class="pr-number">#34920</a>
+            <div class="pr-title" title="wallet: drop stale TODOs">wallet: drop stale TODOs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34920#issuecomment-4127139287" target="_blank" class="commenter">kevkevinpal</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34920" target="_blank" class="pr-number">#34920</a>
+            <div class="pr-title" title="wallet: drop stale TODOs">wallet: drop stale TODOs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34920#issuecomment-4126706331" target="_blank" class="commenter">polespinasa</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34897" target="_blank" class="pr-number">#34897</a>
+            <div class="pr-title" title="indexes: Don't commit ahead of the flushed chainstate">indexes: Don't commit ahead of the flushed chainstate</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34897#issuecomment-4126505950" target="_blank" class="commenter">l0rinc</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34911" target="_blank" class="pr-number">#34911</a>
+            <div class="pr-title" title="rpc, mempool: -deprecatedrpc fullrbf and bip125-replaceable from mempool RPCs">rpc, mempool: -deprecatedrpc fullrbf and bip125-replaceable from mempool RPCs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34911#issuecomment-4125902979" target="_blank" class="commenter">ismaelsadeeq</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34896" target="_blank" class="pr-number">#34896</a>
+            <div class="pr-title" title="ci: Upgrade IWYU to 0.26 compatible with Clang 22">ci: Upgrade IWYU to 0.26 compatible with Clang 22</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34896#issuecomment-4122444079" target="_blank" class="commenter">fanquake</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-24</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34891" target="_blank" class="pr-number">#34891</a>
+            <div class="pr-title" title="doc: Note that generateblock does not collect transaction fees">doc: Note that generateblock does not collect transaction fees</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34891#issuecomment-4119766417" target="_blank" class="commenter">maflcko</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34884" target="_blank" class="pr-number">#34884</a>
+            <div class="pr-title" title="validation: remove unused code in FindMostWorkChain">validation: remove unused code in FindMostWorkChain</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34884#issuecomment-4117453029" target="_blank" class="commenter">fjahr</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34870" target="_blank" class="pr-number">#34870</a>
+            <div class="pr-title" title="wallet: feebumper, fix crash when combined bump fee is unavailable">wallet: feebumper, fix crash when combined bump fee is unavailable</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34870#issuecomment-4114641559" target="_blank" class="commenter">achow101</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-23</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34888" target="_blank" class="pr-number">#34888</a>
+            <div class="pr-title" title="wallet: fix amount computed as boolean in coin selection">wallet: fix amount computed as boolean in coin selection</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34888#issuecomment-4114454710" target="_blank" class="commenter">achow101</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34886" target="_blank" class="pr-number">#34886</a>
+            <div class="pr-title" title="test: Rework Single Random Draw coin selection tests">test: Rework Single Random Draw coin selection tests</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34886#issuecomment-4114443411" target="_blank" class="commenter">brunoerg</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34897" target="_blank" class="pr-number">#34897</a>
+            <div class="pr-title" title="indexes: Don't commit ahead of the flushed chainstate">indexes: Don't commit ahead of the flushed chainstate</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34897#issuecomment-4108800450" target="_blank" class="commenter">fjahr</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34888" target="_blank" class="pr-number">#34888</a>
+            <div class="pr-title" title="wallet: fix amount computed as boolean in coin selection">wallet: fix amount computed as boolean in coin selection</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34888#issuecomment-4107289131" target="_blank" class="commenter">l0rinc</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-22</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34878" target="_blank" class="pr-number">#34878</a>
+            <div class="pr-title" title="depends: Fix cross-compiling on macOS for Windows">depends: Fix cross-compiling on macOS for Windows</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34878#issuecomment-4107221323" target="_blank" class="commenter">fanquake</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34886" target="_blank" class="pr-number">#34886</a>
+            <div class="pr-title" title="test: Rework Single Random Draw coin selection tests">test: Rework Single Random Draw coin selection tests</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34886#issuecomment-4106960991" target="_blank" class="commenter">yancyribbens</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34877" target="_blank" class="pr-number">#34877</a>
+            <div class="pr-title" title="guix: Remove `make-lld-wrapper`">guix: Remove `make-lld-wrapper`</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34877#issuecomment-4106872390" target="_blank" class="commenter">trevarj</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34888" target="_blank" class="pr-number">#34888</a>
+            <div class="pr-title" title="wallet: fix amount computed as boolean in coin selection">wallet: fix amount computed as boolean in coin selection</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">utACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34888#issuecomment-4106189666" target="_blank" class="commenter">fjahr</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34873" target="_blank" class="pr-number">#34873</a>
+            <div class="pr-title" title="net: fix premature stale flagging of unpicked private broadcast txs">net: fix premature stale flagging of unpicked private broadcast txs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34873#issuecomment-4105765474" target="_blank" class="commenter">w0xlt</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34884" target="_blank" class="pr-number">#34884</a>
+            <div class="pr-title" title="validation: remove unused code in FindMostWorkChain">validation: remove unused code in FindMostWorkChain</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34884#issuecomment-4105761238" target="_blank" class="commenter">w0xlt</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34886" target="_blank" class="pr-number">#34886</a>
+            <div class="pr-title" title="test: Rework Single Random Draw coin selection tests">test: Rework Single Random Draw coin selection tests</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34886#issuecomment-4105760221" target="_blank" class="commenter">w0xlt</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34873" target="_blank" class="pr-number">#34873</a>
+            <div class="pr-title" title="net: fix premature stale flagging of unpicked private broadcast txs">net: fix premature stale flagging of unpicked private broadcast txs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34873#issuecomment-4104985507" target="_blank" class="commenter">Mccalabrese</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-21</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34873" target="_blank" class="pr-number">#34873</a>
+            <div class="pr-title" title="net: fix premature stale flagging of unpicked private broadcast txs">net: fix premature stale flagging of unpicked private broadcast txs</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34873#issuecomment-4104834791" target="_blank" class="commenter">andrewtoth</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-20</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34884" target="_blank" class="pr-number">#34884</a>
+            <div class="pr-title" title="validation: remove unused code in FindMostWorkChain">validation: remove unused code in FindMostWorkChain</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">Concept ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34884#issuecomment-4099509372" target="_blank" class="commenter">stickies-v</a>
+        </div>
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34869" target="_blank" class="pr-number">#34869</a>
+            <div class="pr-title" title="tests: applied PYTHON_GIL to the env for every test">tests: applied PYTHON_GIL to the env for every test</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34869#issuecomment-4095169074" target="_blank" class="commenter">fanquake</a>
+        </div>
+    
+    <h2 class="date-header">2026-03-19</h2>
+    
+    <div class="acks-container">
+        <div class="ack-entry">
+            <a href="https://github.com/bitcoin/bitcoin/pull/34869" target="_blank" class="pr-number">#34869</a>
+            <div class="pr-title" title="tests: applied PYTHON_GIL to the env for every test">tests: applied PYTHON_GIL to the env for every test</div>
+            <a href="https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review" target="_blank" class="ack-type">ACK</a>
+            <a href="https://github.com/bitcoin/bitcoin/pull/34869#issuecomment-4092779623" target="_blank" class="commenter">maflcko</a>
+        </div>
+    </div>
 </body>
 </html>
